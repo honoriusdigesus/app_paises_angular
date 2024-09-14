@@ -32,7 +32,7 @@ export class CountriesService {
       //Capturando el error en la petición
       .pipe(
         catchError( error=> {
-          console.error('Error en la petición');
+          console.error('Error en la petición searchCountry');
           console.error(error);
           return of([]);
         } )
@@ -51,6 +51,22 @@ export class CountriesService {
           console.error('Error en la petición');
           console.error(error);
           return of([]);
+        } )
+      );
+  }
+
+
+  searchCountryByAlphaCode( code: string ): Observable<Country | null> {
+    return this.httpClient
+      //
+      .get<Country[]>(`${this.apiUrl}/alpha/${code}`)
+      //Capturando el error en la petición
+      .pipe(
+        map(countries =>countries.length>0 ? countries[0]: null),
+        catchError( error=> {
+          console.error('Error en la petición de searchCountryByAlphaCode');
+          console.error(error);
+          return of(null);
         } )
       );
   }

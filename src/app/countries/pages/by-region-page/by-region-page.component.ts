@@ -13,7 +13,7 @@ export class ByRegionPageComponent {
   public countries: Country[] = [];
 
   searchByRegion( region: string ): void {
-    console.log('Dato recibido en el by-capital es: ', region);
+    console.log('Dato recibido en el by-region es: ', region);
     this.receivedValue = region;
     this.countriesServices.searchRegion(region)
       .subscribe( countries => {

@@ -13,7 +13,7 @@ export class ByCountryPageComponent {
   public countries: Country[] = [];
 
   searchByCountry( country: string ): void {
-    console.log('Dato recibido en el by-capital es: ', country);
+    console.log('Dato recibido en el by-country es: ', country);
     this.receivedValue = country;
     this.countriesServices.searchCountry(country)
       .subscribe( countries => {
