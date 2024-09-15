@@ -4,6 +4,7 @@
 
   <div class="col mb-3">
     <shared-search
+      [inputInitialValue]="initialValue"
       (onEnterEmitter)="searchByCountry($event)"
       placeholder="Buscar por pais"></shared-search>
   </div>

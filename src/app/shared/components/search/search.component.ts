@@ -13,6 +13,7 @@ export class SearchComponent implements OnInit, OnDestroy {
 
   @Input() placeholder: string = '';
   @Output() onEnterEmitter: EventEmitter<string> = new EventEmitter();
+  @Input() inputInitialValue: string = '';
 
   sendValue( value: string ): void {
     this.onEnterEmitter.emit(value);

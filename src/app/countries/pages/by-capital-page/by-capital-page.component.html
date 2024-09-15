@@ -4,8 +4,10 @@
 
   <div class="col mb-3">
     <shared-search
+      [inputInitialValue]="initialValue"
       (onEnterEmitter)="searchByCapital($event)"
       placeholder="Buscar por capital"></shared-search>
+
   </div>
 
 
