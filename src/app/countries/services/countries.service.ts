@@ -11,9 +11,9 @@ export class CountriesService {
 
   constructor(private httpClient:HttpClient) { }
 
-  searchCapital( capital: string ): Observable<Country[]> {
+  getCountriesRequest(paramSearch:string, capital: string ): Observable<Country[]> {
     return this.httpClient
-      .get<Country[]>(`${this.apiUrl}/capital/${capital}`)
+      .get<Country[]>(`${this.apiUrl}/${paramSearch}/${capital}`)
       //Capturando el error en la petición
       .pipe(
         catchError( error=> {
@@ -23,38 +23,6 @@ export class CountriesService {
         } )
       );
   }
-
-
-  searchCountry( country: string ): Observable<Country[]> {
-    return this.httpClient
-      //
-      .get<Country[]>(`${this.apiUrl}/name/${country}`)
-      //Capturando el error en la petición
-      .pipe(
-        catchError( error=> {
-          console.error('Error en la petición searchCountry');
-          console.error(error);
-          return of([]);
-        } )
-      );
-  }
-
-
-  searchRegion( region: string ): Observable<Country[]> {
-    console.log('Region: ', region);
-    return this.httpClient
-      //
-      .get<Country[]>(`${this.apiUrl}/region/${region}`)
-      //Capturando el error en la petición
-      .pipe(
-        catchError( error=> {
-          console.error('Error en la petición');
-          console.error(error);
-          return of([]);
-        } )
-      );
-  }
-
 
   searchCountryByAlphaCode( code: string ): Observable<Country | null> {
     return this.httpClient

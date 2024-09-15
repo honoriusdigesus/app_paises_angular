@@ -14,10 +14,11 @@ export class ByCapitalPageComponent {
   constructor(private countriesService:CountriesService) {}
   receivedValue: string = '';
 
-  searchByCapital( capital: string ): void {
+  searchByCapital(capital: string  ): void {
+
     console.log('Dato recibido en el by-capital es: ', capital);
     this.receivedValue = capital;
-    this.countriesService.searchCapital(capital)
+    this.countriesService.getCountriesRequest('capital',capital)
       .subscribe( countries => {
         this.countries = countries;
         console.log(countries);

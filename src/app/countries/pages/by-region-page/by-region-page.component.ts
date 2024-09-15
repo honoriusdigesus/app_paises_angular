@@ -12,10 +12,10 @@ export class ByRegionPageComponent {
   receivedValue: string = '';
   public countries: Country[] = [];
 
-  searchByRegion( region: string ): void {
+  searchByRegion(region: string ): void {
     console.log('Dato recibido en el by-region es: ', region);
     this.receivedValue = region;
-    this.countriesServices.searchRegion(region)
+    this.countriesServices.getCountriesRequest('region',region)
       .subscribe( countries => {
         this.countries = countries;
         console.log(countries);

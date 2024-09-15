@@ -12,10 +12,10 @@ export class ByCountryPageComponent {
   receivedValue: string = '';
   public countries: Country[] = [];
 
-  searchByCountry( country: string ): void {
+  searchByCountry(country: string ): void {
     console.log('Dato recibido en el by-country es: ', country);
     this.receivedValue = country;
-    this.countriesServices.searchCountry(country)
+    this.countriesServices.getCountriesRequest('name', country)
       .subscribe( countries => {
         this.countries = countries;
         console.log(countries);
