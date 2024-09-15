@@ -4,6 +4,8 @@
   id="search"
   [placeholder]="placeholder"
   class="form-control"
-  #txtSearchInput
-  (keyup.enter)="sendValue(txtSearchInput.value)"
+  (keyup)="onKeyPress(txtSearchInput.value)"
+#txtSearchInput
 >
+
+<!--  (keyup.enter)="sendValue(txtSearchInput.value)"-->

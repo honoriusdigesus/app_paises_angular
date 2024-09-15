@@ -2,10 +2,14 @@
 <hr>
 <section>
 
-  <div class="col mb-3">
-    <shared-search
-      (onEnterEmitter)="searchByRegion($event)"
-      placeholder="Buscar por region"></shared-search>
+  <div class="col mb-3 text-center">
+    <button
+      *ngFor="let region of regions"
+      class="btn mx-2"
+      [ngClass]="{'btn-primary':selectedRegion===region}"
+      (click)="searchByRegion(region)"
+    >
+      {{region}}</button>
   </div>
 
 
