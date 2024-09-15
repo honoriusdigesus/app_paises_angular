@@ -11,6 +11,7 @@
 
   <div class="row">
     <div class="col">
+      <shared-loading *ngIf="isLoading"></shared-loading>
       <country-table [countries]="countries"></country-table>
     </div>
   </div>

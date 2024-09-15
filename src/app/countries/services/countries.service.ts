@@ -24,7 +24,7 @@ export class CountriesService {
       );
   }
 
-  searchCountryByAlphaCode( code: string ): Observable<Country | null> {
+  searchCountryByAlphaCode( code: string ): Observable<Country | null | undefined> {
     return this.httpClient
       //
       .get<Country[]>(`${this.apiUrl}/alpha/${code}`)

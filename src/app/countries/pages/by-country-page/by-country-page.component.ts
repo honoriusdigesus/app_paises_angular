@@ -11,14 +11,17 @@ export class ByCountryPageComponent {
 
   receivedValue: string = '';
   public countries: Country[] = [];
+  public isLoading: boolean = false;
 
   searchByCountry(country: string ): void {
+    this.isLoading = true;
     console.log('Dato recibido en el by-country es: ', country);
     this.receivedValue = country;
     this.countriesServices.getCountriesRequest('name', country)
       .subscribe( countries => {
         this.countries = countries;
         console.log(countries);
+        this.isLoading = false;
       });
   }
 
